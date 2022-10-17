@@ -12,7 +12,7 @@ private:
 
     int getIndex(int i, int j, int c);
 
-    float* convertToRGB();
+    vector<float> convertToRGB();
 
 public:
     Image(int h, int w);
@@ -39,7 +39,7 @@ void Image::setData(int row, int column, int channel, float value){
     data[getIndex(row, column, channel)] = value;
 }
 
-float* Image::convertToRGB(){
+vector<float> Image::convertToRGB(){
     vector<float> result;
 
     for(int i = 0; i < 4 * height * width; i+=4){
@@ -48,9 +48,11 @@ float* Image::convertToRGB(){
         result.push_back(data[i+2]);
     }
 
-    return &result[0];
+    return result;
 }
 
 void Image::writeToHdr(){
-    stbi_write_hdr("img001", width, height, 3, convertToRGB());
+    //stbi_write_hdr("img001.hdr", width, height, 3, &convertToRGB()[0]);
+    stbi_write_hdr("img002.hdr", width, height, 4, &data[0]);
+
 }

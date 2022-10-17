@@ -8,8 +8,6 @@ int main() {
     const int image_width = 256;
     const int image_height = 256;
 
-    // Render
-
     Image img(image_height, image_width);
 
     for (int j = image_height-1; j >= 0; --j) {
@@ -27,7 +25,6 @@ int main() {
         }
     }
 
-    //img.writeToHdr();
-
+    img.writeToHdr();
     return 0;
 }
