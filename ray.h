@@ -7,6 +7,7 @@ class Ray
     private:
         vec3 origin;
         vec3 direction;
+        float tMax;
 
     public:
         Ray() {};
@@ -14,8 +15,8 @@ class Ray
             : origin(orig), direction(dir)
         {}
 
-        vec3 origin() const { return origin; }
-        vec3 direction() const { return direction; }
+        vec3 getOrigin() const { return origin; }
+        vec3 getDirection() const { return direction; }
 
         vec3 at(float t) const {
             return origin + t*direction;

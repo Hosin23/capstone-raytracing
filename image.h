@@ -32,7 +32,7 @@ Image::Image(int h, int w){
 }
 
 int Image::getIndex(int i, int j, int c){
-    return 4 * (i + width * j) + c;
+    return 4 * (i + width * -(j - height + 1)) + c;
 }
 
 void Image::setData(int row, int column, int channel, float value){
